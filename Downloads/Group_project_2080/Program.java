@@ -1,6 +1,6 @@
 public class Program {
     public static void main(String[] args) {
-        tictac game = new tictac();
+        TicTac game = new TicTac();
         game.startGame();
     }
 }

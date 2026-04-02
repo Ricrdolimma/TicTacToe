@@ -15,6 +15,10 @@ public class TicTac {
         initializeBoard();
     }
 
+    public static void main(String[] args) {
+        new TicTac().startGame();
+    }
+
     private void initializeBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -35,11 +39,21 @@ public class TicTac {
         System.out.print("Enter Player 2 name: ");
         player2 = scanner.nextLine();
 
-        System.out.print(player1 + ", choose your symbol (X/O): ");
-        symbol1 = scanner.next().toUpperCase().charAt(0);
+        while (true) {
+            System.out.print(player1 + ", choose your symbol (X/O): ");
+            String input = scanner.next().trim().toUpperCase();
+
+            if (input.length() == 1 && (input.charAt(0) == 'X' || input.charAt(0) == 'O')) {
+                symbol1 = input.charAt(0);
+                break;
+            }
+
+            System.out.println("Invalid symbol. Please enter only X or O.");
+        }
+
         symbol2 = (symbol1 == 'X') ? 'O' : 'X';
 
-        scanner.nextLine(); 
+        scanner.nextLine();
     }
 
     private void playGame() {
